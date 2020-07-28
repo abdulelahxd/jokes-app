@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAV</title>
+</head>
+
+<body>
+    <header>
+        <h1>FAV</h1>
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/favourite">FAVOURITE</a></li>
+            <li><a href="/Random">RANDOM JOKE</a></li>
+        </ul>
+    </header>
+    <main>
+        <section>
+            <%  retriveData.forEach(ele =>{ %>
+            <h2>Type: <%= ele.type %></h2>
+            <h3>setup: <%= ele.setup %></h3>
+            <p>punchline: <%= ele.punchline %></p>
+            <form action="/update" method="post">
+                <input type="text" name="id" value="<%= ele.id %>" id="">
+                <input type="text" name="type" value="<%= ele.type %>" id="">
+                <input type="text" name="setup" value="<%= ele.setup %>" id="">
+                <input type="text" name="punchline" value="<%= ele.punchline %>" id="">
+                <button>update</button>
+            </form>
+            <form action="/delete" method="post">
+                <input type="hidden" value="<%= ele.id %>" name="id">
+                <button>Delete Joke</button>
+            </form>
+            <% }) %>
+        </section>
+    </main>
+</body>
+
+</html>

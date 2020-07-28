@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random</title>
+</head>
+
+<body>
+    <header>
+        <h1>Random</h1>
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/favourite">FAVOURITE</a></li>
+            <li><a href="/Random">RANDOM JOKE</a></li>
+        </ul>
+    </header>
+    <main>
+        <%  dataKey.forEach(dataEjs =>{ %>
+        <h2> <%= dataEjs.type %></h2>
+        <h3> <%= dataEjs.setup %></h3>
+        <p> <%= dataEjs.punchline %></p>
+        <% }) %>
+    </main>
+
+</body>
+
+</html>

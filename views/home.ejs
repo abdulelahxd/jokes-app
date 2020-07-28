@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+</head>
+<body>
+    <header style="margin: 0px; padding: 0px; background-color: rgb(145, 33, 197); height: 70vh;">
+        <h1 style="text-align: center; color: white; font-size: 44px;">Jokes about us</h1>
+        <ul style="margin-top: 50vh; background-color: black; text-align: center;">
+            <li><a style="color: white; text-decoration: none;" href="/">HOME</a></li>
+            <li><a style="color: white; text-decoration: none;" href="/favourite">FAVOURITE</a></li>
+            <li><a href="/Random" style="color: white; text-decoration: none;">RANDOM JOKE</a></li>
+        </ul>
+    </header>
+    <main>
+        <section style="display: flexbox;  flex-direction: row; flex-wrap: wrap; justify-content: space-between;">
+            <%  dataKey.forEach(dataEjs =>{ %>
+                <section  style="display: inline-block; margin: 10px; background-color: lightblue; width: 31%;">
+                <p> <%= dataEjs.id %></p>
+                <h2> <%= dataEjs.type %></h2>
+                <h3> <%= dataEjs.setup %></h3>
+                <p> <%= dataEjs.punchline %></p>
+                <form action="/addToDatabase" method="post">
+                    <input type="hidden" name="type" value="<%= dataEjs.type %>" id="">
+                    <input type="hidden" name="setup" value="<%= dataEjs.setup %>" id="">
+                    <input type="hidden" name="punchline" value="<%= dataEjs.punchline %>" id="">
+                    <button>Add to fav</button>
+                </form>
+            </section >
+            <% }) %>
+        </section>
+    </main>
+</body>
+</html>
